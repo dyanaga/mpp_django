@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>b0ca28d3-924e-443e-a6fd-ea1921b2f6f3.TABLE:main.my_rest_api_customer</OriginalElement>
+  <nodes>
+    <node x="165.0" y="250.0">b0ca28d3-924e-443e-a6fd-ea1921b2f6f3.TABLE:main.my_rest_api_order</node>
+    <node x="0.0" y="239.0">b0ca28d3-924e-443e-a6fd-ea1921b2f6f3.TABLE:main.my_rest_api_item</node>
+    <node x="73.75" y="456.0">b0ca28d3-924e-443e-a6fd-ea1921b2f6f3.TABLE:main.my_rest_api_orderitem</node>
+    <node x="164.5" y="0.0">b0ca28d3-924e-443e-a6fd-ea1921b2f6f3.TABLE:main.my_rest_api_customer</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="b0ca28d3-924e-443e-a6fd-ea1921b2f6f3.TABLE:main.my_rest_api_orderitem" target="b0ca28d3-924e-443e-a6fd-ea1921b2f6f3.TABLE:main.my_rest_api_item" relationship="REFERENCES">
+      <point x="-44.5" y="-72.5" />
+      <point x="118.25" y="431.0" />
+      <point x="72.5" y="431.0" />
+      <point x="0.0" y="83.5" />
+    </edge>
+    <edge source="b0ca28d3-924e-443e-a6fd-ea1921b2f6f3.TABLE:main.my_rest_api_orderitem" target="b0ca28d3-924e-443e-a6fd-ea1921b2f6f3.TABLE:main.my_rest_api_order" relationship="REFERENCES">
+      <point x="44.5" y="-72.5" />
+      <point x="207.25" y="431.0" />
+      <point x="253.0" y="431.0" />
+      <point x="0.0" y="72.5" />
+    </edge>
+    <edge source="b0ca28d3-924e-443e-a6fd-ea1921b2f6f3.TABLE:main.my_rest_api_order" target="b0ca28d3-924e-443e-a6fd-ea1921b2f6f3.TABLE:main.my_rest_api_customer" relationship="REFERENCES">
+      <point x="0.0" y="-72.5" />
+      <point x="0.0" y="94.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.8148148148148148" showDependencies="false" x="171.0" y="300.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Columns</Category>
+    <Category>Key columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+
