@@ -10,6 +10,11 @@ class CustomerSerializer(serializers.ModelSerializer):
 
 
 class ItemSerializer(serializers.ModelSerializer):
+    def validate_category(self, value):
+        if value in ["soda", "vegetables", "fruits"]:
+            return value
+        raise serializers.ValidationError("Category not valid")
+
     class Meta:
         model = Item
         fields = "__all__"
@@ -31,6 +36,11 @@ class OrderItemSerializer_basic(serializers.ModelSerializer):
         filter = Order.objects.filter(id=value)
         if not filter.exists():
             raise serializers.ValidationError("Order does not exist")
+        return value
+
+    def validate_quantity(self, value):
+        if value <= 0:
+            raise serializers.ValidationError("Not positive quantity")
         return value
 
     class Meta:
@@ -55,6 +65,11 @@ class OrderSerializer_basic(serializers.ModelSerializer):
             raise serializers.ValidationError("Customer does not exist")
         return value
 
+    def validate_payment_type(self, value):
+        if value not in ["card", "cash", "discount"]:
+            raise serializers.ValidationError("PaymentType is not valid")
+        return value
+
     class Meta:
         model = Order
         fields = ("id", "customer_id", "status", "payment_type", "awb")
@@ -72,6 +87,7 @@ class OrderItemSerializer(OrderItemSerializer_basic):
 class OrderSerializer(OrderSerializer_basic):
     order_items = serializers.SerializerMethodField()
     name = serializers.CharField(read_only=True)
+
     # customer = CustomerSerializer(read_only=True)
 
     def get_order_items(self, order):
